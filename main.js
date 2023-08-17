@@ -31,6 +31,8 @@ routes.forEach((route) => {
   }
 });
 //route.path === "*" ||
+
+//fjbjgj
 document.querySelector("#app").innerHTML = `
 
 <nav>
