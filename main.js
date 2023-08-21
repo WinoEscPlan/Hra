@@ -31,6 +31,9 @@ routes.forEach((route) => {
     page = errorPage;
   }
 });
+
+//test pre nový branch
+
 console.log(`Selected page: ${page}`);
 //route.path === "*" ||
 
