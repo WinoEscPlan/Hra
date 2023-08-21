@@ -6,6 +6,7 @@ import checkURL from "./src/components/checkURL";
 import errorPage from "./src/pages/errorPage";
 
 let page = warriorListPage;
+let matchFound = false;
 const routes = [
   {
     path: "/detail-bojovnika/",
@@ -19,20 +20,20 @@ const routes = [
     path: "/list",
     component: warriorListPage,
   },
-  {
-    path: "*",
-    component: errorPage,
-  },
 ];
 
 routes.forEach((route) => {
   if (window.location.pathname.includes(route.path)) {
+    console.log(`Matched path: ${route.path}`);
     page = route.component;
+    matchFound = true;
+  } else if (!matchFound) {
+    page = errorPage;
   }
 });
+console.log(`Selected page: ${page}`);
 //route.path === "*" ||
 
-//fjbjgj
 document.querySelector("#app").innerHTML = `
 
 <nav>
@@ -48,7 +49,7 @@ document.querySelector("#app").innerHTML = `
   </div>
   <h1>Evil vs Good</h1>
   ${page()}
-   <div id="details">
+   <div id="details"></div>
   
 `;
 function markActualPathLinks() {
