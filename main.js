@@ -4,9 +4,9 @@ import warriorListPage from "./src/pages/warriorListPage";
 import aboutUsPage from "./src/pages/aboutUsPage";
 import checkURL from "./src/components/checkURL";
 import errorPage from "./src/pages/errorPage";
-
+import markActualPathLinks from "./src/components/markActualPathLinks";
 let page = warriorListPage;
-let matchFound = false;
+let matchFoundInPaths = false;
 const routes = [
   {
     path: "/detail-bojovnika/",
@@ -26,8 +26,8 @@ routes.forEach((route) => {
   if (window.location.pathname.includes(route.path)) {
     console.log(`Matched path: ${route.path}`);
     page = route.component;
-    matchFound = true;
-  } else if (!matchFound) {
+    matchFoundInPaths = true;
+  } else if (!matchFoundInPaths) {
     page = errorPage;
   }
 });
@@ -36,7 +36,7 @@ console.log(`Selected page: ${page}`);
 
 document.querySelector("#app").innerHTML = `
 
-<nav>
+<nav id=navbar>
 <ul>
   <li><a class="nav-link" href="/list">Home</a></li>
   <li><a class="nav-link" href="/about-us" id="about-link"</a>About Us</li>
@@ -52,14 +52,6 @@ document.querySelector("#app").innerHTML = `
    <div id="details"></div>
   
 `;
-function markActualPathLinks() {
-  const activePage = window.location.pathname;
-  document.querySelectorAll("nav a").forEach((link) => {
-    if (link.href.includes(activePage)) {
-      link.classList.add("active");
-    }
-  });
-}
 
 markActualPathLinks();
 

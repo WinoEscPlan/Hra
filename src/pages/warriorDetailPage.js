@@ -10,7 +10,7 @@ function warriorDetailPage() {
   if (warrior) {
     return `<div><h2>Chosen Warrior</h2><p>${warrior.id}</p><p>${warrior.name}</p><p>${warrior.type}</p></div>`;
   } else {
-    return errorPage();
+    return `<div><p>bojovík nenájdený</p></div>`;
   }
 }
 
