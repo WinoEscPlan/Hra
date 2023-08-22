@@ -33,6 +33,7 @@ routes.forEach((route) => {
 });
 console.log(`Selected page: ${page}`);
 //route.path === "*" ||
+// test git
 
 document.querySelector("#app").innerHTML = `
 
