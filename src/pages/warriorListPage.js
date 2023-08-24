@@ -7,7 +7,8 @@ function warriorListPage() {
 
   const alliesList = warriorList(allies, "list1");
   const enemiesList = warriorList(enemies, "list2");
-  return `<div id="list-of-warriors" class="list-container">
+  return ` <h1>Evil vs Good</h1>
+  <div id="list-of-warriors" class="list-container">
     ${alliesList}
     ${enemiesList}
     </div>`;

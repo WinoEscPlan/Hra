@@ -1,5 +1,4 @@
-import { warriors, checkIdInWarriorsArray } from "../../warriors";
-import errorPage from "./errorPage";
+import { warriors } from "../../warriors";
 
 function warriorDetailPage() {
   const parts = window.location.pathname.split("/");
@@ -10,7 +9,7 @@ function warriorDetailPage() {
   if (warrior) {
     return `<div><h2>Chosen Warrior</h2><p>${warrior.id}</p><p>${warrior.name}</p><p>${warrior.type}</p></div>`;
   } else {
-    return `<div><p>bojovík nenájdený</p></div>`;
+    return `<div><p>Bojovík nebol nenájdený, klikni <a href="/list"><strong>sem</strong></a> a vyber si zo zoznamu bojovníkov!</p></div>`;
   }
 }
 

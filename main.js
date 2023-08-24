@@ -2,9 +2,9 @@ import "./style.css";
 import warriorDetailPage from "./src/pages/warriorDetailPage";
 import warriorListPage from "./src/pages/warriorListPage";
 import aboutUsPage from "./src/pages/aboutUsPage";
-import checkURL from "./src/components/checkURL";
 import errorPage from "./src/pages/errorPage";
 import markActualPathLinks from "./src/components/markActualPathLinks";
+
 let page = warriorListPage;
 let matchFoundInPaths = false;
 const routes = [
@@ -35,25 +35,29 @@ console.log(`Selected page: ${page}`);
 //route.path === "*" ||
 // test git
 
-document.querySelector("#app").innerHTML = `
+if (matchFoundInPaths) {
+  document.querySelector("#app").innerHTML = `
 
-<nav id=navbar>
-<ul>
-  <li><a class="nav-link" href="/list">Home</a></li>
-  <li><a class="nav-link" href="/about-us" id="about-link"</a>About Us</li>
-</ul>
-</nav>
+  <nav id=navbar>
+  <ul>
+    <li><a class="nav-link" href="/list">List of Warriors</a></li>
+    <li><a class="nav-link" href="/about-us" id="about-link"</a>About Us</li>
+  </ul>
+  </nav>
+    <div>
+      <a href="https://darksouls.wiki.fextralife.com/Dark+Souls+Wiki" target="_blank">
+        <img src="/src/img/artorias.jpg" class="logo" alt="Vite logo" />
+      </a>
+    </div>
+     <div>
+     ${page()}
+     </div>
+  `;
+} else {
+  document.querySelector("#app").innerHTML = `
   <div>
-    <a href="https://darksouls.wiki.fextralife.com/Dark+Souls+Wiki" target="_blank">
-      <img src="/src/img/artorias.jpg" class="logo" alt="Vite logo" />
-    </a>
-  </div>
-  <h1>Evil vs Good</h1>
   ${page()}
-   <div id="details"></div>
-  
-`;
-
+  </div> 
+  `;
+}
 markActualPathLinks();
-
-//checkURL();
