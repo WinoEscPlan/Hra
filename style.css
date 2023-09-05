@@ -99,6 +99,10 @@ button:focus-visible {
   transform: translate(-50%, -50%);
 }
 
+.aboutUs-container {
+  max-width: 650px;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
