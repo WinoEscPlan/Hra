@@ -1,5 +1,5 @@
 import { warriors } from "../../warriors";
-
+//params je objekt kde sú parametre s url
 function warriorDetailPage() {
   const parts = window.location.pathname.split("/");
   const id = +parts[2];

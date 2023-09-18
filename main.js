@@ -9,7 +9,7 @@ let page = warriorListPage;
 let matchFoundInPaths = false;
 const routes = [
   {
-    path: "/detail-bojovnika/",
+    path: /^\/detail-bojovnika\/(\d+)$/,
     component: warriorDetailPage,
   },
   {
@@ -21,17 +21,22 @@ const routes = [
     component: warriorListPage,
   },
 ];
+let currentPath = window.location.pathname;
 
 routes.forEach((route) => {
-  if (window.location.pathname.includes(route.path)) {
-    console.log(`Matched path: ${route.path}`);
+  let isItMatched = currentPath.match(route.path);
+  if (isItMatched) {
+    //console.log(`Matched path: ${currentPath}`);
     page = route.component;
     matchFoundInPaths = true;
+    console.log("ID:", isItMatched[1]);
   } else if (!matchFoundInPaths) {
     page = errorPage;
+    console.log("ID:", "is not number");
   }
 });
-console.log(`Selected page: ${page}`);
+
+//console.log(`Selected page: ${page}`);
 //route.path === "*" ||
 // test git
 
