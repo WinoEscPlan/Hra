@@ -9,7 +9,7 @@ let page = warriorListPage;
 let matchFoundInPaths = false;
 const routes = [
   {
-    path: /^\/detail-bojovnika\/(\d+)$/,
+    path: "/detail-bojovnika/:id",
     component: warriorDetailPage,
   },
   {
