@@ -1,10 +1,14 @@
 import { warriors } from "../../warriors";
-//params je objekt kde sú parametre s url
-function warriorDetailPage() {
-  const parts = window.location.pathname.split("/");
-  const id = +parts[2];
+import { matchRoute } from "../routes";
+//function warriorDetailPage({id})
+function warriorDetailPage(params) {
+  //const parts = window.location.pathname.split("/");
+  // const id = +parts[2];
+  // namiesto params.id premennú id
 
-  const warrior = warriors.find((warrior) => warrior.id === id);
+  let id = parseInt(params.id); //id = parseInt(id)
+  let warrior = warriors.find((warrior) => warrior.id === id);
+  console.log(id);
 
   if (warrior) {
     return `<div><h2>Chosen Warrior</h2><p>${warrior.id}</p><p>${warrior.name}</p><p>${warrior.type}</p></div>`;

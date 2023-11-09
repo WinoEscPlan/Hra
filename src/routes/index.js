@@ -1,7 +1,8 @@
 import warriorDetailPage from "../pages/warriorDetailPage";
 import aboutUsPage from "../pages/aboutUsPage";
 import warriorListPage from "../pages/warriorListPage";
-
+import errorPage from "../pages/errorPage";
+import buildsPage from "../pages/buildsPage";
 const routes = [
   {
     path: "/detail-bojovnika/:id",
@@ -26,6 +27,10 @@ const routes = [
   {
     path: "/:bar/bojovnik/:id/:dusan",
     component: warriorDetailPage,
+  },
+  {
+    path: "/builds",
+    component: buildsPage,
   },
 ];
 
@@ -54,14 +59,21 @@ export function matchRoute(pathname) {
     if (getOut) {
       continue;
     }
+
     return {
       path: route.path,
       component: route.component,
       params: params, //môže byť aj params,
+
       //params: { foo: fooParam, id: idParam }, //ako zistiť čo dať do parametrov stredný continue
     };
   }
-  //return errorpage
+  return {
+    path: pathname,
+    component: errorPage,
+    params: {},
+    isError: true,
+  };
 }
 
 export default routes;

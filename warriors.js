@@ -106,7 +106,7 @@ function filterWarriorsByType(warriors, type) {
 //npm run dev
 
 //lifehack
-console.log(warriors);
+//console.log(warriors);
 
 // porovná ID v url či existuje
 
