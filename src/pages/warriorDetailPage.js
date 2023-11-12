@@ -9,6 +9,7 @@ function warriorDetailPage(params) {
   let id = parseInt(params.id); //id = parseInt(id)
   let warrior = warriors.find((warrior) => warrior.id === id);
   console.log(id);
+  console.log(warrior);
 
   if (warrior) {
     return `<div><h2>Chosen Warrior</h2><p>${warrior.id}</p><p>${warrior.name}</p><p>${warrior.type}</p></div>`;
