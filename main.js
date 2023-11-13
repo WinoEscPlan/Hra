@@ -1,47 +1,25 @@
 import "./style.css";
-import warriorDetailPage from "./src/pages/warriorDetailPage";
-import warriorListPage from "./src/pages/warriorListPage";
-import aboutUsPage from "./src/pages/aboutUsPage";
-import errorPage from "./src/pages/errorPage";
+
 import markActualPathLinks from "./src/components/markActualPathLinks";
+import { matchRoute } from "./src/routes";
 
-let page = warriorListPage;
-let matchFoundInPaths = false;
-const routes = [
-  {
-    path: "/detail-bojovnika/",
-    component: warriorDetailPage,
-  },
-  {
-    path: "/about-us",
-    component: aboutUsPage,
-  },
-  {
-    path: "/list",
-    component: warriorListPage,
-  },
-];
+let currentPath = window.location.pathname;
 
-routes.forEach((route) => {
-  if (window.location.pathname.includes(route.path)) {
-    console.log(`Matched path: ${route.path}`);
-    page = route.component;
-    matchFoundInPaths = true;
-  } else if (!matchFoundInPaths) {
-    page = errorPage;
-  }
-});
-console.log(`Selected page: ${page}`);
-//route.path === "*" ||
-// test git
+let currentRoute = matchRoute(currentPath);
 
-if (matchFoundInPaths) {
+if (currentRoute.isError) {
   document.querySelector("#app").innerHTML = `
-
+     <div>
+     ${currentRoute.component()}
+     </div>
+  `;
+} else {
+  document.querySelector("#app").innerHTML = `
   <nav id=navbar>
   <ul>
     <li><a class="nav-link" href="/list">List of Warriors</a></li>
     <li><a class="nav-link" href="/about-us" id="about-link"</a>About Us</li>
+    <li><a class="nav-link" href="/builds"</a>Builds</li>
   </ul>
   </nav>
     <div>
@@ -49,14 +27,8 @@ if (matchFoundInPaths) {
         <img src="/src/img/artorias.jpg" class="logo" alt="Vite logo" />
       </a>
     </div>
-     <div>
-     ${page()}
-     </div>
-  `;
-} else {
-  document.querySelector("#app").innerHTML = `
   <div>
-  ${page()}
+  ${currentRoute.component(currentRoute.params)}
   </div> 
   `;
 }

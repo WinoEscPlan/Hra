@@ -6,7 +6,7 @@ const warriors = [
     weapon: "Sword",
     strength: 80,
     agility: 70,
-    type: "enemy",
+    type: "Chaotic neutral",
   },
   {
     id: 2,
@@ -14,7 +14,7 @@ const warriors = [
     weapon: "Axe",
     strength: 90,
     agility: 60,
-    type: "ally",
+    type: "Lawful good",
   },
   {
     id: 3,
@@ -22,7 +22,7 @@ const warriors = [
     weapon: "Bow",
     strength: 70,
     agility: 80,
-    type: "enemy",
+    type: "Chaotic neutral",
   },
   {
     id: 4,
@@ -30,7 +30,7 @@ const warriors = [
     weapon: "Spear",
     strength: 75,
     agility: 75,
-    type: "ally",
+    type: "Lawful good",
   },
   {
     id: 5,
@@ -38,7 +38,7 @@ const warriors = [
     weapon: "Dagger",
     strength: 65,
     agility: 85,
-    type: "enemy",
+    type: "Chaotic neutral",
   },
   {
     id: 6,
@@ -46,7 +46,7 @@ const warriors = [
     weapon: "Hammer",
     strength: 85,
     agility: 65,
-    type: "enemy",
+    type: "True neutral",
   },
   {
     id: 7,
@@ -54,7 +54,7 @@ const warriors = [
     weapon: "Staff",
     strength: 60,
     agility: 90,
-    type: "ally",
+    type: "True neutral",
   },
   {
     id: 8,
@@ -62,7 +62,7 @@ const warriors = [
     weapon: "Mace",
     strength: 70,
     agility: 70,
-    type: "ally",
+    type: "Chaotic evil",
   },
   {
     id: 9,
@@ -70,7 +70,7 @@ const warriors = [
     weapon: "Halberd",
     strength: 80,
     agility: 60,
-    type: "enemy",
+    type: "Neutral",
   },
   {
     id: 10,
@@ -78,7 +78,7 @@ const warriors = [
     weapon: "Club",
     strength: 75,
     agility: 75,
-    type: "enemy",
+    type: "Chaotic evil",
   },
   {
     id: 11,
@@ -86,7 +86,7 @@ const warriors = [
     weapon: "Fire Broadsword",
     strength: 84,
     agility: 75,
-    type: "ally",
+    type: "Chaotic evil",
   },
   {
     id: 6421,
@@ -94,7 +94,23 @@ const warriors = [
     weapon: "Fire Broadsword",
     strength: 84,
     agility: 75,
-    type: "ally",
+    type: "Neutral",
+  },
+  {
+    id: 19,
+    name: "Artorias the Godkiller",
+    weapon: "Axe",
+    strength: 23,
+    agility: 99,
+    type: "Lawful neutral",
+  },
+  {
+    id: 423,
+    name: "Lorian the Abysswalker",
+    weapon: "Claymore",
+    strength: 90,
+    agility: 87,
+    type: "Lawful neutral",
   },
 ];
 //sortWarriorsByType
@@ -106,7 +122,7 @@ function filterWarriorsByType(warriors, type) {
 //npm run dev
 
 //lifehack
-console.log(warriors);
+//console.log(warriors);
 
 // porovná ID v url či existuje
 
