@@ -1,4 +1,4 @@
-export { warriors, filterWarriorsByType, checkIdInWarriorsArray };
+export { warriors };
 const warriors = [
   {
     id: 1,
@@ -114,21 +114,18 @@ const warriors = [
   },
 ];
 //sortWarriorsByType
-
+/*
 function filterWarriorsByType(warriors, type) {
   return warriors.filter((obj) => obj.type === type);
-}
+}*/
 
 //npm run dev
 
-//lifehack
-//console.log(warriors);
-
 // porovná ID v url či existuje
-
+/*
 function checkIdInWarriorsArray(idToCheck, warriorsArray) {
   const foundWarrior = warriorsArray.find(
     (warrior) => warrior.id === idToCheck
   );
   return !!foundWarrior;
-}
+}*/
