@@ -1,5 +1,5 @@
 import warriorList from "../components/warriorlist";
-import { warriors } from "../../warriors";
+import { warriors } from "../data/warriors";
 import dropDownWarriorsSelect from "../components/dropDownWarriorsList";
 
 function warriorListPage(params) {

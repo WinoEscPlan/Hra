@@ -1,4 +1,4 @@
-import { warriors } from "../../warriors";
+import { warriors } from "../data/warriors";
 import { matchRoute } from "../routes";
 //function warriorDetailPage({id})
 function warriorDetailPage(params) {

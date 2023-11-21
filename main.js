@@ -1,35 +1,20 @@
 import "./style.css";
+import layout from "./layout";
+import errorLayout from "./errorLayout";
 
 import markActualPathLinks from "./src/components/markActualPathLinks";
 import { matchRoute } from "./src/routes";
 
-let currentPath = window.location.pathname;
+const currentRoute = matchRoute(window.location.pathname);
 
-let currentRoute = matchRoute(currentPath);
+let contentComponent;
 
 if (currentRoute.isError) {
-  document.querySelector("#app").innerHTML = `
-     <div>
-     ${currentRoute.component()}
-     </div>
-  `;
+  contentComponent = errorLayout;
 } else {
-  document.querySelector("#app").innerHTML = `
-  <nav id=navbar>
-  <ul>
-    <li><a class="nav-link" href="/list">List of Warriors</a></li>
-    <li><a class="nav-link" href="/about-us" id="about-link"</a>About Us</li>
-    <li><a class="nav-link" href="/builds"</a>Builds</li>
-  </ul>
-  </nav>
-    <div>
-      <a href="https://darksouls.wiki.fextralife.com/Dark+Souls+Wiki" target="_blank">
-        <img src="/src/img/artorias.jpg" class="logo" alt="Vite logo" />
-      </a>
-    </div>
-  <div>
-  ${currentRoute.component(currentRoute.params)}
-  </div> 
-  `;
+  contentComponent = layout;
 }
+
+document.querySelector("#app").innerHTML = contentComponent(currentRoute);
+
 markActualPathLinks();
