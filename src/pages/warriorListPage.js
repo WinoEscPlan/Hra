@@ -1,44 +1,15 @@
-import warriorList from "../components/warriorlist";
 import { warriors } from "../data/warriors";
-import dropDownWarriorsSelect from "../components/dropDownWarriorsList";
+import warriorListLayout from "../components/warriorsList/warriorListLayout";
 
 function warriorListPage(params) {
-  let searchParams = new URLSearchParams(window.location.search);
+  const searchParams = new URLSearchParams(window.location.search);
   params.type = searchParams.get("type");
 
-  let warriorsFilteredByType = warriors.filter(
+  const warriorsFilteredByType = warriors.filter(
     (warrior) => warrior.type === params.type
   );
 
-  console.log(window.location.search);
-  console.log(window.location.pathname);
-  console.log(params);
-
-  let pageContent = `
-  <div>${dropDownWarriorsSelect()}</div><br>
-  ${
-    params.type
-      ? `
-    <div>
-      <h2><strong>${params.type}</strong></h2>
-    </div>
-    <div id="list-of-warriors" class="list-container">
-      ${
-        params.type === "All of Them"
-          ? warriorList(warriors, "list1")
-          : warriorList(warriorsFilteredByType, "list1")
-      }
-    </div>
-  `
-      : `
-    <div>
-      <p>Please choose your alignment!</p>
-    </div>
-  `
-  }
-`;
-
-  return pageContent;
+  return warriorListLayout(params, warriors, warriorsFilteredByType);
 }
 
 export default warriorListPage;

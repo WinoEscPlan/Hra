@@ -1,4 +1,4 @@
-import { warriors } from "../data/warriors";
+import { warriors } from "../../data/warriors";
 
 function generateOptions() {
   let optionsHtml;
@@ -9,7 +9,7 @@ function generateOptions() {
   types.forEach((type) => {
     optionsHtml += `<option value="${type}">${type}</option>`;
   });
-  console.log(types);
+
   return optionsHtml;
 }
 

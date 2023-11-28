@@ -5,7 +5,7 @@ function warriorList(warriors, className) {
         `<li><a href="/detail-bojovnika/${warrior.id}" >ID: ${warrior.id}, Name: ${warrior.name}, Type: ${warrior.type}</a></li>`
     )
 
-    .join(" ");
+    .join("\n");
 
   return `<ol class="${className}">${list}</ol>`;
 }
