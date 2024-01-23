@@ -5,16 +5,30 @@ function warriorTypeHeader(type) {
   return type ? `<h2><strong>${type}</strong></h2>` : "";
 }
 
-function warriorListLayout(params, warriors, warriorsFilteredByType) {
+function warriorListLayout(warriors) {
+  const searchParams = new URLSearchParams(window.location.search);
+  const type = searchParams.get("type");
+
+  const warriorsFilteredByType = warriors.filter(
+    (warrior) => warrior.type === type
+  );
+
   const dropdown = dropDownWarriorsSelect();
-  const header = params.type
-    ? warriorTypeHeader(params.type)
+  const header = type
+    ? warriorTypeHeader(type)
     : "<div><p>Please choose your alignment!</p></div>";
   const list =
-    params.type === "All of Them"
+    type === null || type === "All of Them"
       ? warriorList(warriors, "list1")
       : warriorList(warriorsFilteredByType, "list1");
-
+  /*
+  let list = "";
+  if (params.type === null || params.type === "All of Them") {
+    list = warriorList(warriors, "list1");
+  } else {
+    list = warriorList(warriorsFilteredByType, "list1");
+  }
+*/
   return `
       <div>${dropdown}</div><br>
       <div>${header}</div>

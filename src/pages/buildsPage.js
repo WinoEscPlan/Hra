@@ -1,4 +1,4 @@
-import { warriors } from "../data/warriors";
+//import { warriors } from "../data/warriors";
 
 function buildsPage() {
   return ` <h2>page under construction </h2>

@@ -9,7 +9,7 @@ function submitForm() {
 }
 
 function dropDownWarriorsSelect() {
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("custom:HTMLready", () => {
     document.getElementById("selectBox").addEventListener("change", submitForm);
   });
 

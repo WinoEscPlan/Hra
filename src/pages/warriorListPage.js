@@ -1,15 +1,55 @@
-import { warriors } from "../data/warriors";
 import warriorListLayout from "../components/warriorsList/warriorListLayout";
+import loadWarriors from "../components/dataHandlers/loadWarriors";
+let warriors = [];
+let wasLoaded = false;
 
-function warriorListPage(params) {
-  const searchParams = new URLSearchParams(window.location.search);
-  params.type = searchParams.get("type");
+function warriorListPage() {
+  if (!wasLoaded) {
+    loadWarriors("http://localhost:3000/api-warriors").then((data) => {
+      warriors = data;
+      wasLoaded = true;
+    });
+  }
 
-  const warriorsFilteredByType = warriors.filter(
-    (warrior) => warrior.type === params.type
-  );
-
-  return warriorListLayout(params, warriors, warriorsFilteredByType);
+  return warriorListLayout(warriors);
 }
+
+/*
+
+function fetched(url) {
+  return fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error in fetch:", error);
+      throw error;
+    });
+}
+// potrebuje params z route.js?
+async function warriorListPage() {
+  if (!wasLoaded) {
+    try {
+      const res = await fetched("http://localhost:3000/api-warriors");
+
+      warriors = res;
+      wasLoaded = true;
+      document.dispatchEvent(new Event("reRender"));
+    } catch (error) {
+      console.error("Error loading warriors:", error);
+    }
+  }
+
+  
+  warriors.forEach((w) => {
+    console.log(w.type);
+  });
+
+
+  return warriorListLayout(warriors);
+}*/
 
 export default warriorListPage;
